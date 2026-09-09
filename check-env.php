@@ -4,12 +4,18 @@ header('Content-Type: text/plain');
 
 echo "PHP directory: " . __DIR__ . PHP_EOL;
 
-$envPath = __DIR__ . '/.env';
+$rootEnv = __DIR__ . '/.env';
+$gtaEnv = __DIR__ . '/gta/.env';
 
-echo "Expected .env path: " . $envPath . PHP_EOL;
-echo "Checking for .env: " . (file_exists($envPath) ? '.env EXISTS' : '.env DOES NOT EXIST') . PHP_EOL;
+echo PHP_EOL;
+echo "Root .env: " . (file_exists($rootEnv) ? 'EXISTS' : 'DOES NOT EXIST') . PHP_EOL;
+echo "Expected path: " . $rootEnv . PHP_EOL;
 
-if (file_exists($envPath)) {
-    echo "Readable: " . (is_readable($envPath) ? 'YES' : 'NO') . PHP_EOL;
-    echo "Size: " . filesize($envPath) . " bytes" . PHP_EOL;
+echo PHP_EOL;
+echo "gta/.env: " . (file_exists($gtaEnv) ? 'EXISTS' : 'DOES NOT EXIST') . PHP_EOL;
+echo "Expected path: " . $gtaEnv . PHP_EOL;
+
+if (file_exists($gtaEnv)) {
+    echo "gta/.env readable: " . (is_readable($gtaEnv) ? 'YES' : 'NO') . PHP_EOL;
+    echo "gta/.env size: " . filesize($gtaEnv) . " bytes" . PHP_EOL;
 }
